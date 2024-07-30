@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { SocialLinksContainer, SocialLinksContent } from './styles'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons/faUserGroup'
+import { SocialLinksContainer, SocialLinksContent } from './styles'
 
 export function SocialLinks() {
   return (

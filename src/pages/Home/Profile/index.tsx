@@ -9,7 +9,7 @@ import {
   ProfileName,
   ProfilePic,
 } from './styles'
-import { SocialLinks } from './Components/SocialLinks'
+import { SocialLinks } from '../components/SocialLinks'
 
 export function Profile() {
   return (
