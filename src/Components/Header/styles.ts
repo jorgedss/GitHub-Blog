@@ -1,16 +1,10 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 18.5rem;
-  height: 100%;
-  position: relative;
-
-  img {
-    position: absolute;
-    width: 100vw;
-    top: 0;
-  }
+  height: 18.5rem;
+  width: 100%;
+  background-image: url('/src/assets/bg-header.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `

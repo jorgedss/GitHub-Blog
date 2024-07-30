@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
 }
 :focus{
     outline: 0;
@@ -14,8 +15,8 @@ export const GlobalStyle = createGlobalStyle`
   
 }
 body{
-    background-color: ${(props) => props.theme['base-background']};
-    color: ${(props) => props.theme['base-text']};
+    background-color: ${({ theme }) => theme.colors['base-background']};
+    color: ${({ theme }) => theme.colors['base-text']};
     -webkit-font-smoothing: antialiased; // fonte mais detalhada
 
 }
