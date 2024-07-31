@@ -3,9 +3,6 @@ import styled from 'styled-components'
 export const ProfileContainer = styled.div`
   display: flex;
   gap: 2rem;
-  max-width: 54rem;
-  width: 100%;
-  margin: -6.625rem auto 0;
   padding: 2rem 2.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};
   border-radius: 0.625rem;

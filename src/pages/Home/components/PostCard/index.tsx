@@ -9,7 +9,9 @@ export function PostCard() {
   return (
     <PostCardContainer>
       <PostCardHeader>
-        <PostCardTitle>JavaScript data types and data structures</PostCardTitle>
+        <PostCardTitle>
+          <a href="/13232">JavaScript data types and data structures</a>
+        </PostCardTitle>
         <span>Há 1 dia</span>
       </PostCardHeader>
       <PostCardContent>

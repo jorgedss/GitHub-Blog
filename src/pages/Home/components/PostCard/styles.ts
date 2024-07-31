@@ -24,9 +24,16 @@ export const PostCardHeader = styled.header`
 
 export const PostCardTitle = styled.div`
   max-width: 17.7rem;
-  color: ${({ theme }) => theme.colors['base-title']};
-  font-size: ${({ theme }) => theme.fontSize['title-m']};
-  font-weight: bold;
+
+  a {
+    color: ${({ theme }) => theme.colors['base-title']};
+    font-size: ${({ theme }) => theme.fontSize['title-m']};
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
 
 export const PostCardContent = styled.div`
