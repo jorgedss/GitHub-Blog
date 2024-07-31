@@ -9,7 +9,7 @@ export const ProfileContainer = styled.div`
   padding: 2rem 2.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};
   border-radius: 0.625rem;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 `
 export const ProfilePic = styled.div`
   display: flex;
