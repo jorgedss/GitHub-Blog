@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { UserDataTypes } from '../@types/UserDataTypes'
+import { api } from '../lib/axios'
 
 interface UserProviderProps {
   children: ReactNode
@@ -15,12 +16,11 @@ export function UserContextProvider({ children }: UserProviderProps) {
   const [githubData, setGithubData] = useState<UserDataTypes>()
 
   async function loadGithubData() {
-    const response = await fetch('http://api.github.com/users/jorgedss')
-    const data = await response.json()
+    const response = await api.get('/users/jorgedss')
 
-    setGithubData(data)
+    setGithubData(response.data)
 
-    console.log(data)
+    console.log(response.data)
   }
 
   useEffect(() => {
