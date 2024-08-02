@@ -5,6 +5,8 @@ import {
   PostCardContainer,
 } from './styles'
 
+import { formatterDateDistance } from '../../../../utils/formatter'
+
 interface PostCardProps {
   body: string
   title: string
@@ -18,7 +20,7 @@ export function PostCard({ body, title, createdAt }: PostCardProps) {
         <PostCardTitle>
           <a href="/13232">{title}</a>
         </PostCardTitle>
-        <span>{createdAt}</span>
+        <span>{formatterDateDistance(createdAt)}</span>
       </PostCardHeader>
       <PostCardContent>{body}</PostCardContent>
     </PostCardContainer>

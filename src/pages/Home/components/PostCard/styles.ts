@@ -24,6 +24,7 @@ export const PostCardHeader = styled.header`
 
 export const PostCardTitle = styled.div`
   max-width: 17.7rem;
+  flex: 1;
 
   a {
     color: ${({ theme }) => theme.colors['base-title']};
