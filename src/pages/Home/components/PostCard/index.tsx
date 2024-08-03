@@ -4,7 +4,7 @@ import {
   PostCardContent,
   PostCardContainer,
 } from './styles'
-
+import Markdown from 'react-markdown'
 import { formatterDateDistance } from '../../../../utils/formatter'
 
 interface PostCardProps {
@@ -22,7 +22,9 @@ export function PostCard({ body, title, createdAt }: PostCardProps) {
         </PostCardTitle>
         <span>{formatterDateDistance(createdAt)}</span>
       </PostCardHeader>
-      <PostCardContent>{body}</PostCardContent>
+      <PostCardContent>
+        <Markdown>{body}</Markdown>
+      </PostCardContent>
     </PostCardContainer>
   )
 }
