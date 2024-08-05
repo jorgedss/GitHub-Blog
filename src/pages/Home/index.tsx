@@ -21,6 +21,7 @@ export function Home() {
           return (
             <PostCard
               key={data.id}
+              id={data.id}
               body={data.body}
               title={data.title}
               createdAt={data.created_at}

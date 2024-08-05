@@ -7,8 +7,15 @@ import {
   faComment,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { formatterDateDistance } from '../../../../utils/formatter'
 
-export function PostInfo() {
+interface PostInfoProps {
+  title: string
+  comments: number
+  createdAt: string
+}
+
+export function PostInfo({ comments, createdAt, title }: PostInfoProps) {
   return (
     <PostInfoContainer>
       <PostInfoLinks>
@@ -22,7 +29,7 @@ export function PostInfo() {
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </div>
       </PostInfoLinks>
-      <PostTitle>JavaScript data types and data structures</PostTitle>
+      <PostTitle>{title}</PostTitle>
       <Infos>
         <div>
           <FontAwesomeIcon icon={faGithub} />
@@ -30,10 +37,12 @@ export function PostInfo() {
         </div>
         <div>
           <FontAwesomeIcon icon={faCalendarDay} />
-          Há um dia
+          {formatterDateDistance(createdAt)}
         </div>
         <div>
-          <FontAwesomeIcon icon={faComment} />5 comentários
+          <FontAwesomeIcon icon={faComment} />
+          {comments}
+          {comments === 1 ? ' comentário' : ' comentários'}
         </div>
       </Infos>
     </PostInfoContainer>

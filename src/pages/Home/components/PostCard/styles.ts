@@ -20,17 +20,21 @@ export const PostCardHeader = styled.header`
     color: ${({ theme }) => theme.colors['base-span']};
     font-size: ${({ theme }) => theme.fontSize['text-s']};
   }
-`
 
-export const PostCardTitle = styled.div`
-  max-width: 17.7rem;
-  flex: 1;
+  div {
+    display: flex;
+    flex: 1;
+  }
 
-  a {
+  button {
     color: ${({ theme }) => theme.colors['base-title']};
     font-size: ${({ theme }) => theme.fontSize['title-m']};
     font-weight: bold;
+
     text-decoration: none;
+    background: none;
+    border: none;
+
     &:hover {
       text-decoration: underline;
     }

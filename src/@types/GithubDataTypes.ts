@@ -38,28 +38,28 @@ export interface IshuesDataTypes {
   body: string
   id: number
   created_at: string
-
-  active_lock_reason: string | null
-  assignee: string | null
-  assignees: string[]
-  author_association: string
-  closed_at: string | null
-  comments: number
-  comments_url: string
-  events_url: string
-  html_url: string
-  labels: string[]
-  labels_url: string
-  locked: boolean
-  milestone: string | never
-  node_id: string
-  number: number
-
-  repository_url: string
-  state: string
-  state_reason: string | null
-  timeline_url: string
-  updated_at: string
   url: string
   user: UserDataTypes
+  comments: number
+
+  // active_lock_reason: string | null
+  // assignee: string | null
+  // assignees: string[]
+  // author_association: string
+  // closed_at: string | null
+  // comments_url: string
+  // events_url: string
+  // html_url: string
+  // labels: string[]
+  // labels_url: string
+  // locked: boolean
+  // milestone: string | never
+  // node_id: string
+  // number: number
+
+  // repository_url: string
+  // state: string
+  // state_reason: string | null
+  // timeline_url: string
+  // updated_at: string
 }
