@@ -55,4 +55,13 @@ export const Infos = styled.div`
     align-items: center;
     gap: 0.5rem;
   }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors['base-text']};
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `

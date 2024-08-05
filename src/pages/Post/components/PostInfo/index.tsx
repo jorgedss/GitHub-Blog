@@ -30,7 +30,7 @@ export function PostInfo() {
       <Infos>
         <div>
           <FontAwesomeIcon icon={faGithub} />
-          <a href="">{ishueToShow.user.login}</a>
+          <a href={ishueToShow.user.html_url}>{ishueToShow.user.login}</a>
         </div>
         <div>
           <FontAwesomeIcon icon={faCalendarDay} />

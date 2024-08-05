@@ -22,7 +22,7 @@ body{
 }
 
  body, input, textarea, button{
-    font: 400 0.75rem Roboto, sans-serif;
+    font: 400 0.75rem 'Nunito', sans-serif;
     // espessura tamanho fonte
 }
 
