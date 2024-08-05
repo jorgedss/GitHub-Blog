@@ -11,9 +11,9 @@ interface UserContextType {
   ishuesData: IshuesDataTypes[]
   query: string
   idPostToShow: number
+  ishueToShow: IshuesDataTypes
   filterIshues: (query: string) => void
   handleChangeIdPostToShow: (id: number) => void
-
   filteredIshuesData: IshuesDataTypes[] | undefined
 }
 
@@ -72,6 +72,7 @@ export function UserContextProvider({ children }: UserProviderProps) {
   function handleChangeIdPostToShow(id: number) {
     setIdPostToShow(id)
   }
+  const ishueToShow = ishuesData.find((ishue) => ishue.id === idPostToShow)!
 
   return (
     <UserContext.Provider
@@ -83,6 +84,7 @@ export function UserContextProvider({ children }: UserProviderProps) {
         filteredIshuesData,
         idPostToShow,
         handleChangeIdPostToShow,
+        ishueToShow,
       }}
     >
       {children}

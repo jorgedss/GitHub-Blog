@@ -8,14 +8,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { formatterDateDistance } from '../../../../utils/formatter'
+import { useContext } from 'react'
+import { UserContext } from '../../../../contexts/UserContext'
 
-interface PostInfoProps {
-  title: string
-  comments: number
-  createdAt: string
-}
-
-export function PostInfo({ comments, createdAt, title }: PostInfoProps) {
+export function PostInfo() {
+  const { ishueToShow } = useContext(UserContext)
   return (
     <PostInfoContainer>
       <PostInfoLinks>
@@ -29,20 +26,20 @@ export function PostInfo({ comments, createdAt, title }: PostInfoProps) {
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </div>
       </PostInfoLinks>
-      <PostTitle>{title}</PostTitle>
+      <PostTitle>{ishueToShow.title}</PostTitle>
       <Infos>
         <div>
           <FontAwesomeIcon icon={faGithub} />
-          jorgedss
+          <a href="">{ishueToShow.user.login}</a>
         </div>
         <div>
           <FontAwesomeIcon icon={faCalendarDay} />
-          {formatterDateDistance(createdAt)}
+          {formatterDateDistance(ishueToShow.created_at)}
         </div>
         <div>
           <FontAwesomeIcon icon={faComment} />
-          {comments}
-          {comments === 1 ? ' comentário' : ' comentários'}
+          {ishueToShow.comments}
+          {ishueToShow.comments === 1 ? ' comentário' : ' comentários'}
         </div>
       </Infos>
     </PostInfoContainer>

@@ -1,14 +1,14 @@
 import Markdown from 'react-markdown'
 import { PostContentContainer } from './styles'
+import { useContext } from 'react'
+import { UserContext } from '../../../../contexts/UserContext'
 
-interface PostContentProps {
-  content: string
-}
+export function PostContent() {
+  const { ishueToShow } = useContext(UserContext)
 
-export function PostContent({ content }: PostContentProps) {
   return (
     <PostContentContainer>
-      <Markdown>{content}</Markdown>
+      <Markdown>{ishueToShow.body}</Markdown>
     </PostContentContainer>
   )
 }
