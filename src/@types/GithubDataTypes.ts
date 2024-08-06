@@ -41,13 +41,14 @@ export interface IshuesDataTypes {
   url: string
   user: UserDataTypes
   comments: number
+  number: number
+  // comments_url: string
 
   // active_lock_reason: string | null
   // assignee: string | null
   // assignees: string[]
   // author_association: string
   // closed_at: string | null
-  // comments_url: string
   // events_url: string
   // html_url: string
   // labels: string[]
@@ -55,7 +56,6 @@ export interface IshuesDataTypes {
   // locked: boolean
   // milestone: string | never
   // node_id: string
-  // number: number
 
   // repository_url: string
   // state: string

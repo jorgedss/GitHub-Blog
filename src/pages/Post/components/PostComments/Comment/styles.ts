@@ -18,7 +18,7 @@ export const CommentContet = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  border-radius: 0 6px 6px 6px;
+  border-radius: 0 8px 8px 8px;
   background: ${({ theme }) => theme.colors['base-label']};
   font-size: ${({ theme }) => theme.fontSize['text-m']};
 
