@@ -18,6 +18,12 @@ export const ProfilePic = styled.div`
     height: 9.25rem;
     border-radius: 8px;
   }
+  button {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
 `
 
 export const ProfileInfos = styled.div`

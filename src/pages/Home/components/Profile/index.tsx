@@ -12,6 +12,8 @@ import {
 import { SocialLinks } from '../SocialLinks'
 import { useContext } from 'react'
 import { UserContext } from '../../../../contexts/UserContext'
+import * as Dialog from '@radix-ui/react-dialog'
+import { Modal } from '../Modal'
 
 export function Profile() {
   const { githubData } = useContext(UserContext)
@@ -19,7 +21,15 @@ export function Profile() {
   return (
     <ProfileContainer>
       <ProfilePic>
-        <img src={githubData?.avatar_url} alt="Foto de perfil" />
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <button>
+              <img src={githubData?.avatar_url} alt="Foto de perfil" />
+            </button>
+          </Dialog.Trigger>
+
+          <Modal />
+        </Dialog.Root>
       </ProfilePic>
 
       <ProfileInfos>
