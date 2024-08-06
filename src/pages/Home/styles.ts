@@ -13,7 +13,7 @@ export const HomeContainer = styled.div`
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
   @media only screen and (max-width: 699px) {

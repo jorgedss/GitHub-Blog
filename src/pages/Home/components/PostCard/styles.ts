@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const PostCardContainer = styled.div`
   height: 16.25rem;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
