@@ -1,36 +1,50 @@
-import { PostCardHeader, PostCardContent, PostCardContainer } from './styles'
+import {
+  PostCardHeader,
+  PostCardContent,
+  PostCardContainer,
+  AuthorProfileImage,
+} from './styles'
 import Markdown from 'react-markdown'
 import { formatterDateDistance } from '../../../../utils/formatter'
 import { useContext } from 'react'
 import { UserContext } from '../../../../contexts/UserContext'
 import { Link } from 'react-router-dom'
+import { UserDataTypes } from '../../../../@types/GithubDataTypes'
 
-interface PostCardProps {
+interface PostCardType {
   body: string
   title: string
-  createdAt: string
+  created_at: string
   id: number
+  user: UserDataTypes
 }
 
-export function PostCard({ body, title, createdAt, id }: PostCardProps) {
+interface PostCardProps {
+  ishue: PostCardType
+}
+
+export function PostCard({ ishue }: PostCardProps) {
   const { handleChangeIdPostToShow } = useContext(UserContext)
 
-  const url = `/${id}`
+  const url = `/${ishue.id}`
 
   return (
     <PostCardContainer>
       <PostCardHeader>
         <div>
+          <AuthorProfileImage>
+            <img src={ishue.user.avatar_url} alt="Foto de perfil" />
+          </AuthorProfileImage>
           <Link to={url}>
-            <button onClick={() => handleChangeIdPostToShow(id)}>
-              {title}
+            <button onClick={() => handleChangeIdPostToShow(ishue.id)}>
+              {ishue.title}
             </button>
           </Link>
         </div>
-        <span>{formatterDateDistance(createdAt)}</span>
+        <span>{formatterDateDistance(ishue.created_at)}</span>
       </PostCardHeader>
       <PostCardContent>
-        <Markdown>{body}</Markdown>
+        <Markdown>{ishue.body}</Markdown>
       </PostCardContent>
     </PostCardContainer>
   )

@@ -16,7 +16,9 @@ export const PostCardContainer = styled.div`
 
 export const PostCardHeader = styled.header`
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
+
   span {
     color: ${({ theme }) => theme.colors['base-span']};
     font-size: ${({ theme }) => theme.fontSize['text-s']};
@@ -24,7 +26,7 @@ export const PostCardHeader = styled.header`
 
   div {
     display: flex;
-    flex: 1;
+    gap: 0.5rem;
   }
 
   button {
@@ -35,10 +37,22 @@ export const PostCardHeader = styled.header`
     text-decoration: none;
     background: none;
     border: none;
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;
     }
+  }
+`
+
+export const AuthorProfileImage = styled.div`
+  display: flex;
+  width: auto;
+
+  img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
   }
 `
 
