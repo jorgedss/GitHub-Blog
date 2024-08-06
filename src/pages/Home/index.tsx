@@ -11,6 +11,7 @@ export function Home() {
   // query começa como false, tem valor inicial ''
 
   const ishuesDataToUse = !query ? ishuesData : filteredIshuesData
+  console.log(ishuesDataToUse)
 
   return (
     <HomeContainer>
