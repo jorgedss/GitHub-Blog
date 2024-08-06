@@ -1,3 +1,4 @@
+import { PostComments } from './components/PostComments'
 import { PostContent } from './components/PostContent'
 import { PostInfo } from './components/PostInfo'
 import { PostContainer } from './styles'
@@ -10,6 +11,7 @@ export function Post() {
     <PostContainer>
       <PostInfo />
       <PostContent />
+      <PostComments />
     </PostContainer>
   )
 }

@@ -18,7 +18,7 @@ export function Modal() {
     <Dialog.Portal>
       <Overlay />
 
-      <Content>
+      <Content aria-describedby="Modal com o perfil expandido e centralizado na tela">
         <ProfileImage>
           <img src={githubData.avatar_url} alt="Imagem de perfil" />
         </ProfileImage>

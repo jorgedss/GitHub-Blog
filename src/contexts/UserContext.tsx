@@ -53,7 +53,9 @@ export function UserContextProvider({ children }: UserProviderProps) {
   }
 
   async function loadIshuesData() {
-    const response = await api.get('/repos/jorgedss/github-blog/issues')
+    const response = await api.get(
+      '/repos/jorgedss/github-blog/issues?state=all',
+    )
     setIshuesData(response.data)
   }
   useEffect(() => {
