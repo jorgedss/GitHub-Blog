@@ -52,7 +52,7 @@ export const AuthorProfileImage = styled.div`
   img {
     width: 3rem;
     height: 3rem;
-    border-radius: 50%;
+    border-radius: 6px;
   }
 `
 

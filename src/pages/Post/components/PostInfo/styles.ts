@@ -44,6 +44,15 @@ export const PostTitle = styled.div`
   color: ${({ theme }) => theme.colors['base-title']};
   font-size: ${({ theme }) => theme.fontSize['title-l']};
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 6px;
+  }
 `
 
 export const Infos = styled.div`

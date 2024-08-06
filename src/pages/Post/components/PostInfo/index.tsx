@@ -26,7 +26,11 @@ export function PostInfo() {
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </div>
       </PostInfoLinks>
-      <PostTitle>{ishueToShow.title}</PostTitle>
+
+      <PostTitle>
+        <img src={ishueToShow.user.avatar_url} alt="Imagem de perfil" />
+        {ishueToShow.title}
+      </PostTitle>
       <Infos>
         <div>
           <FontAwesomeIcon icon={faGithub} />
