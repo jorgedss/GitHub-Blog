@@ -28,19 +28,10 @@ export function UserContextProvider({ children }: UserProviderProps) {
     return savedValue != null ? JSON.parse(savedValue) : []
   })
 
-  useEffect(() => {
-    localStorage.setItem('ishuesData', JSON.stringify(ishuesData))
-  }, [ishuesData])
-
-  console.log(ishuesData)
-
   const [idPostToShow, setIdPostToShow] = useState(() => {
     const savedValue = localStorage.getItem('postId')
     return savedValue !== null ? JSON.parse(savedValue) : 0
   })
-  useEffect(() => {
-    localStorage.setItem('postId', JSON.stringify(idPostToShow))
-  }, [idPostToShow])
 
   async function loadGithubData() {
     const response = await api.get('/users/jorgedss')
@@ -59,6 +50,14 @@ export function UserContextProvider({ children }: UserProviderProps) {
   }
 
   useEffect(() => {
+    localStorage.setItem('ishuesData', JSON.stringify(ishuesData))
+  }, [ishuesData])
+
+  useEffect(() => {
+    localStorage.setItem('postId', JSON.stringify(idPostToShow))
+  }, [idPostToShow])
+
+  useEffect(() => {
     loadGithubData()
     loadIshuesData()
     loadRepositories()
@@ -68,7 +67,7 @@ export function UserContextProvider({ children }: UserProviderProps) {
     setIdPostToShow(id)
   }
   const ishueToShow = ishuesData.find((ishue) => ishue.id === idPostToShow)!
-
+  console.log('renderizou')
   return (
     <UserContext.Provider
       value={{

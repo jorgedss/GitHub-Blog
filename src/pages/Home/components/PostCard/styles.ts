@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const PostCardContainer = styled.div`
   height: 16.25rem;
@@ -16,6 +16,7 @@ export const PostCardContainer = styled.div`
 
 export const PostCardHeader = styled.header`
   display: flex;
+  position: relative;
   justify-content: space-between;
   gap: 1rem;
 
@@ -43,6 +44,40 @@ export const PostCardHeader = styled.header`
       text-decoration: underline;
     }
   }
+`
+
+interface LabelVariant {
+  variant: 'open' | 'closed'
+}
+
+export const Label = styled.div<LabelVariant>`
+  width: 4rem;
+  height: 1rem;
+  border-top-right-radius: 6px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: ${({ theme }) => theme.colors['ishue-closed']};
+  color: white;
+  font-size: 0.5rem;
+  font-weight: bold;
+  font-family: 'Nunito' monospace;
+
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+
+  ${(props) =>
+    props.variant === 'open'
+      ? css`
+          background: ${props.theme.colors.blue};
+        `
+      : css`
+          background: ${props.theme.colors['ishue-closed']};
+        `}
 `
 
 export const AuthorProfileImage = styled.div`

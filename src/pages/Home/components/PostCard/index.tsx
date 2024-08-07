@@ -3,6 +3,7 @@ import {
   PostCardContent,
   PostCardContainer,
   AuthorProfileImage,
+  Label,
 } from './styles'
 import Markdown from 'react-markdown'
 import { formatterDateDistance } from '../../../../utils/formatter'
@@ -17,6 +18,7 @@ interface PostCardType {
   created_at: string
   id: number
   user: UserDataTypes
+  state: 'open' | 'closed'
 }
 
 interface PostCardProps {
@@ -27,10 +29,13 @@ export function PostCard({ ishue }: PostCardProps) {
   const { handleChangeIdPostToShow } = useContext(UserContext)
 
   const url = `/${ishue.id}`
-
+  console.log(ishue)
   return (
     <PostCardContainer>
       <PostCardHeader>
+        <Label variant={ishue.state}>
+          {ishue.state === 'open' ? 'ABERTA' : 'FECHADA'}
+        </Label>
         <div>
           <AuthorProfileImage>
             <img src={ishue.user.avatar_url} alt="Foto de perfil" />
