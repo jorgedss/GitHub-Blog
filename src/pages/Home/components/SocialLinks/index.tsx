@@ -4,7 +4,7 @@ import { faUserGroup } from '@fortawesome/free-solid-svg-icons/faUserGroup'
 import { SocialLinksContainer, SocialLinksContent } from './styles'
 import { useContext } from 'react'
 import { UserContext } from '../../../../contexts/UserContext'
-import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
 export function SocialLinks() {
   const { githubData } = useContext(UserContext)
@@ -23,10 +23,10 @@ export function SocialLinks() {
         <FontAwesomeIcon icon={faLocationDot} />
         João Pessoa, PB
       </SocialLinksContent>
-      <SocialLinksContent>
+      {/* <SocialLinksContent>
         <FontAwesomeIcon icon={faEnvelope} />
         jorgesouza621@gmail.com
-      </SocialLinksContent>
+      </SocialLinksContent> */}
     </SocialLinksContainer>
   )
 }

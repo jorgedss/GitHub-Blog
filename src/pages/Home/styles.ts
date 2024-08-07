@@ -8,17 +8,4 @@ export const HomeContainer = styled.div`
 
   margin: -6.625rem auto 2rem;
   padding: 0 2rem;
-
-  main {
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  @media only screen and (max-width: 699px) {
-    main {
-      grid-template-columns: 1fr;
-    }
-  }
 `

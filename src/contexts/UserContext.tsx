@@ -9,12 +9,11 @@ interface UserProviderProps {
 interface UserContextType {
   githubData: UserDataTypes
   ishuesData: IshuesDataTypes[]
-  query: string
+
   idPostToShow: number
   ishueToShow: IshuesDataTypes
-  filterIshues: (query: string) => void
+
   handleChangeIdPostToShow: (id: number) => void
-  filteredIshuesData: IshuesDataTypes[] | undefined
 }
 
 export const UserContext = createContext({} as UserContextType)
@@ -23,6 +22,7 @@ export function UserContextProvider({ children }: UserProviderProps) {
   const [githubData, setGithubData] = useState<UserDataTypes>(
     {} as UserDataTypes,
   )
+
   const [ishuesData, setIshuesData] = useState<IshuesDataTypes[]>(() => {
     const savedValue = localStorage.getItem('ishuesData')
     return savedValue != null ? JSON.parse(savedValue) : []
@@ -32,23 +32,18 @@ export function UserContextProvider({ children }: UserProviderProps) {
     localStorage.setItem('ishuesData', JSON.stringify(ishuesData))
   }, [ishuesData])
 
-  const [filteredIshuesData, setFilteredIshuesData] =
-    useState<IshuesDataTypes[]>()
-
-  const [query, setQuery] = useState('')
+  console.log(ishuesData)
 
   const [idPostToShow, setIdPostToShow] = useState(() => {
     const savedValue = localStorage.getItem('postId')
     return savedValue !== null ? JSON.parse(savedValue) : 0
   })
-
   useEffect(() => {
     localStorage.setItem('postId', JSON.stringify(idPostToShow))
   }, [idPostToShow])
 
   async function loadGithubData() {
     const response = await api.get('/users/jorgedss')
-
     setGithubData(response.data)
   }
 
@@ -58,18 +53,16 @@ export function UserContextProvider({ children }: UserProviderProps) {
     )
     setIshuesData(response.data)
   }
+
+  async function loadRepositories() {
+    await api.get('/users/jorgedss/repos')
+  }
+
   useEffect(() => {
     loadGithubData()
     loadIshuesData()
+    loadRepositories()
   }, [])
-
-  function filterIshues(event: string) {
-    setQuery(event)
-    const ishuesFiltered = ishuesData?.filter((ishue) =>
-      ishue.title.toLowerCase().includes(query.toLowerCase()),
-    )
-    setFilteredIshuesData(ishuesFiltered)
-  }
 
   function handleChangeIdPostToShow(id: number) {
     setIdPostToShow(id)
@@ -81,9 +74,6 @@ export function UserContextProvider({ children }: UserProviderProps) {
       value={{
         githubData,
         ishuesData,
-        query,
-        filterIshues,
-        filteredIshuesData,
         idPostToShow,
         handleChangeIdPostToShow,
         ishueToShow,
