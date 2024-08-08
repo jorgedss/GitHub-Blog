@@ -9,6 +9,8 @@ export const IshuesCardListContainer = styled.div`
     margin: 0 auto;
 
     display: grid;
+    max-width: 54rem;
+
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }

@@ -4,6 +4,7 @@ import {
   PostCardContainer,
   AuthorProfileImage,
   Label,
+  ButtonContainer,
 } from './styles'
 import Markdown from 'react-markdown'
 import { formatterDateDistance } from '../../../../utils/formatter'
@@ -31,10 +32,12 @@ export function PostCard({ ishue }: PostCardProps) {
           <AuthorProfileImage>
             <img src={ishue.user.avatar_url} alt="Foto de perfil" />
           </AuthorProfileImage>
-          <Link to={url}>
-            <button onClick={() => handleChangeIdPostToShow(ishue.id)}>
-              {ishue.title}
-            </button>
+          <Link to={url} style={{ textDecoration: 'none' }}>
+            <ButtonContainer>
+              <button onClick={() => handleChangeIdPostToShow(ishue.id)}>
+                {ishue.title}
+              </button>
+            </ButtonContainer>
           </Link>
         </div>
         <span>{formatterDateDistance(ishue.created_at)}</span>

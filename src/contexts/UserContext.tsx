@@ -46,16 +46,16 @@ export function UserContextProvider({ children }: UserProviderProps) {
   )
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [repository, setRepository] = useState('github-blog')
+  const [repository, setRepository] = useState('rocketredis')
 
   async function loadGithubData() {
-    const response = await api.get('/users/jorgedss')
+    const response = await api.get('/users/diego3g')
     setGithubData(response.data)
   }
 
   async function loadIshuesData() {
     const response = await api.get(
-      `/repos/jorgedss/${repository}/issues?state=all`,
+      `/repos/diego3g/${repository}/issues?state=all`,
     )
     setIshuesData(response.data)
   }
@@ -66,7 +66,7 @@ export function UserContextProvider({ children }: UserProviderProps) {
 
   useEffect(() => {
     async function loadRepositories() {
-      const response = await api.get('/users/jorgedss/repos')
+      const response = await api.get('/users/diego3g/repos')
 
       const responseData = response.data
 
@@ -95,6 +95,8 @@ export function UserContextProvider({ children }: UserProviderProps) {
   function handleChangeIdPostToShow(id: number) {
     setIdPostToShow(id)
   }
+
+  console.log(repositories)
   const ishueToShow = ishuesData.find((ishue) => ishue.id === idPostToShow)!
   return (
     <UserContext.Provider

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export const PostCardContainer = styled.div`
   height: 16.25rem;
   width: 100%;
+  max-width: 26rem;
 
   display: flex;
   flex-direction: column;
@@ -21,28 +22,16 @@ export const PostCardHeader = styled.header`
   gap: 1rem;
 
   span {
+    position: absolute;
+    right: 0;
     color: ${({ theme }) => theme.colors['base-span']};
     font-size: ${({ theme }) => theme.fontSize['text-s']};
+    width: 4rem;
   }
 
   div {
     display: flex;
     gap: 0.5rem;
-  }
-
-  button {
-    color: ${({ theme }) => theme.colors['base-title']};
-    font-size: ${({ theme }) => theme.fontSize['title-m']};
-    font-weight: bold;
-
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 `
 
@@ -88,6 +77,32 @@ export const AuthorProfileImage = styled.div`
     width: 3rem;
     height: 3rem;
     border-radius: 6px;
+  }
+`
+export const ButtonContainer = styled.div`
+  max-width: 12rem;
+  max-height: 6rem;
+  width: 100%;
+
+  white-space: wrap;
+  overflow: hidden;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors['base-title']};
+    font-size: ${({ theme }) => theme.fontSize['title-s']};
+    font-weight: bold;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 
