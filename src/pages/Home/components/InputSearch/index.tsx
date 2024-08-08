@@ -14,6 +14,7 @@ export function InputSearch({ query, handleSetQuery }: InputSearchProps) {
     <InputContainer>
       <InputLabels>
         <p>Publicações</p>
+
         <span>
           {ishuesData?.length}
           {ishuesData?.length === 1 ? ' publicação' : ' publicações'}

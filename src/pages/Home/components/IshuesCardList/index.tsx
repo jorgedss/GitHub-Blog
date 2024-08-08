@@ -3,6 +3,7 @@ import { PostCard } from '../PostCard'
 import { IshuesCardListContainer } from './styles'
 import { UserContext } from '../../../../contexts/UserContext'
 import { InputSearch } from '../InputSearch'
+import RepositorySelection from '../RepositorySelector'
 
 export function IshuesCardList() {
   const { ishuesData } = useContext(UserContext)
@@ -24,6 +25,7 @@ export function IshuesCardList() {
   return (
     <IshuesCardListContainer>
       <InputSearch query={query} handleSetQuery={handleSetQuery} />
+      <RepositorySelection />
       <main>
         {ishuesDataToUse?.map((data) => {
           return <PostCard key={data.id} ishue={data} />

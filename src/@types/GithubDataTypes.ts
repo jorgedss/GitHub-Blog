@@ -33,6 +33,10 @@ export interface UserDataTypes {
   // subscriptions_url: string
 }
 
+export interface RepositoryTypes {
+  name: string
+}
+
 export interface IshuesDataTypes {
   title: string
   body: string
@@ -42,6 +46,7 @@ export interface IshuesDataTypes {
   user: UserDataTypes
   comments: number
   number: number
+  state: 'open' | 'closed'
   // comments_url: string
 
   // active_lock_reason: string | null
@@ -58,7 +63,7 @@ export interface IshuesDataTypes {
   // node_id: string
 
   // repository_url: string
-  // state: string
+
   // state_reason: string | null
   // timeline_url: string
   // updated_at: string

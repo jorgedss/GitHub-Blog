@@ -10,26 +10,17 @@ import { formatterDateDistance } from '../../../../utils/formatter'
 import { useContext } from 'react'
 import { UserContext } from '../../../../contexts/UserContext'
 import { Link } from 'react-router-dom'
-import { UserDataTypes } from '../../../../@types/GithubDataTypes'
-
-interface PostCardType {
-  body: string
-  title: string
-  created_at: string
-  id: number
-  user: UserDataTypes
-  state: 'open' | 'closed'
-}
+import { IshuesDataTypes } from '../../../../@types/GithubDataTypes'
 
 interface PostCardProps {
-  ishue: PostCardType
+  ishue: IshuesDataTypes
 }
 
 export function PostCard({ ishue }: PostCardProps) {
   const { handleChangeIdPostToShow } = useContext(UserContext)
 
   const url = `/${ishue.id}`
-  console.log(ishue)
+
   return (
     <PostCardContainer>
       <PostCardHeader>

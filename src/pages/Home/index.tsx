@@ -1,5 +1,4 @@
 import { IshuesCardList } from './components/IshuesCardList'
-
 import { Profile } from './components/Profile'
 import { HomeContainer } from './styles'
 

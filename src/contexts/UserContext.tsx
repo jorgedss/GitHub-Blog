@@ -1,5 +1,9 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
-import { UserDataTypes, IshuesDataTypes } from '../@types/GithubDataTypes'
+import {
+  UserDataTypes,
+  IshuesDataTypes,
+  RepositoryTypes,
+} from '../@types/GithubDataTypes'
 import { api } from '../lib/axios'
 
 interface UserProviderProps {
@@ -9,6 +13,8 @@ interface UserProviderProps {
 interface UserContextType {
   githubData: UserDataTypes
   ishuesData: IshuesDataTypes[]
+  repositoriesNameList: string[]
+  handleChangeRepository: (reporitory: string) => void
 
   idPostToShow: number
   ishueToShow: IshuesDataTypes
@@ -33,6 +39,15 @@ export function UserContextProvider({ children }: UserProviderProps) {
     return savedValue !== null ? JSON.parse(savedValue) : 0
   })
 
+  const [repositories, setRepositories] = useState<RepositoryTypes[]>([])
+
+  const repositoriesNameList = repositories.map(
+    (repositories) => repositories.name,
+  )
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [repository, setRepository] = useState('github-blog')
+
   async function loadGithubData() {
     const response = await api.get('/users/jorgedss')
     setGithubData(response.data)
@@ -40,14 +55,29 @@ export function UserContextProvider({ children }: UserProviderProps) {
 
   async function loadIshuesData() {
     const response = await api.get(
-      '/repos/jorgedss/github-blog/issues?state=all',
+      `/repos/jorgedss/${repository}/issues?state=all`,
     )
     setIshuesData(response.data)
   }
 
-  async function loadRepositories() {
-    await api.get('/users/jorgedss/repos')
+  function handleChangeRepository(repository: string) {
+    setRepository(repository)
   }
+
+  useEffect(() => {
+    async function loadRepositories() {
+      const response = await api.get('/users/jorgedss/repos')
+
+      const responseData = response.data
+
+      if (JSON.stringify(responseData) !== JSON.stringify(repositories)) {
+        setRepositories(response.data)
+        localStorage.setItem('repositories', JSON.stringify(repositories))
+      }
+    }
+
+    loadRepositories()
+  }, [repositories])
 
   useEffect(() => {
     localStorage.setItem('ishuesData', JSON.stringify(ishuesData))
@@ -60,14 +90,14 @@ export function UserContextProvider({ children }: UserProviderProps) {
   useEffect(() => {
     loadGithubData()
     loadIshuesData()
-    loadRepositories()
-  }, [])
+  }, [repository])
 
   function handleChangeIdPostToShow(id: number) {
     setIdPostToShow(id)
   }
   const ishueToShow = ishuesData.find((ishue) => ishue.id === idPostToShow)!
-  console.log('renderizou')
+  console.log(repository)
+  console.log(repositoriesNameList)
   return (
     <UserContext.Provider
       value={{
@@ -76,6 +106,8 @@ export function UserContextProvider({ children }: UserProviderProps) {
         idPostToShow,
         handleChangeIdPostToShow,
         ishueToShow,
+        repositoriesNameList,
+        handleChangeRepository,
       }}
     >
       {children}
