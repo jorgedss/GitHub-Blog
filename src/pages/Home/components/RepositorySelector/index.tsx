@@ -19,33 +19,27 @@ const MenuProps = {
   },
 }
 
-function getStyles(name: string, personName: string[], theme: Theme) {
+function getStyles(name: string, repositoryName: string, theme: Theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
+      repositoryName === name
+        ? theme.typography.fontWeightMedium
+        : theme.typography.fontWeightRegular,
   }
 }
 
 export default function RepositorySelection() {
   const theme = useTheme()
-  const [personName, setPersonName] = React.useState<string[]>([])
+  const [repositoryName, setRepositoryName] = React.useState<string>('')
 
   const { repositoriesNameList, handleChangeRepository } =
     React.useContext(UserContext)
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-    const {
-      target: { value },
-    } = event
-
-    const selectedName = typeof value === 'string' ? value.split(',') : value
-    const repositoryName = selectedName.join()
-    setPersonName(selectedName)
-    handleChangeRepository(repositoryName)
-
-    localStorage.setItem('repository', JSON.stringify('repository'))
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    const value = event.target.value
+    setRepositoryName(value)
+    handleChangeRepository(value)
+    localStorage.setItem('repository', JSON.stringify(value))
   }
 
   return (
@@ -62,10 +56,11 @@ export default function RepositorySelection() {
         <InputLabel
           id="demo-name-label"
           sx={{
-            color: defaultTheme.colors['base-input'],
-            fontSize: 12,
+            color: defaultTheme.colors['base-subtitle'],
+            fontSize: 14,
             fontWeight: 'bold',
             marginTop: '-10px',
+            fontFamily: 'Nunito',
           }}
         >
           Repositórios
@@ -73,13 +68,12 @@ export default function RepositorySelection() {
         <Select
           labelId="demo-name-label"
           id="demo-name"
-          value={personName}
+          value={repositoryName}
           onChange={handleChange}
           sx={{
             height: '30px',
-            padding: 0,
-            display: 'flex',
-            alignItems: 'center',
+            color: defaultTheme.colors['base-title'],
+            fontFamily: 'Nunito',
           }}
           input={
             <OutlinedInput
@@ -98,7 +92,11 @@ export default function RepositorySelection() {
             <MenuItem
               key={name}
               value={name}
-              style={getStyles(name, personName, theme)}
+              style={getStyles(name, repositoryName, theme)}
+              sx={{
+                color: defaultTheme.colors['base-label'],
+                fontFamily: 'Nunito',
+              }}
             >
               {name}
             </MenuItem>

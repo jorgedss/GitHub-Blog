@@ -96,8 +96,6 @@ export function UserContextProvider({ children }: UserProviderProps) {
     setIdPostToShow(id)
   }
   const ishueToShow = ishuesData.find((ishue) => ishue.id === idPostToShow)!
-  console.log(repository)
-  console.log(repositoriesNameList)
   return (
     <UserContext.Provider
       value={{
