@@ -46,16 +46,16 @@ export function UserContextProvider({ children }: UserProviderProps) {
   )
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [repository, setRepository] = useState('rocketredis')
+  const [repository, setRepository] = useState('github-blog')
 
   async function loadGithubData() {
-    const response = await api.get('/users/diego3g')
+    const response = await api.get('/users/jorgedss')
     setGithubData(response.data)
   }
 
   async function loadIshuesData() {
     const response = await api.get(
-      `/repos/diego3g/${repository}/issues?state=all`,
+      `/repos/jorgedss/${repository}/issues?state=all`,
     )
     setIshuesData(response.data)
   }
@@ -66,7 +66,7 @@ export function UserContextProvider({ children }: UserProviderProps) {
 
   useEffect(() => {
     async function loadRepositories() {
-      const response = await api.get('/users/diego3g/repos')
+      const response = await api.get('/users/jorgedss/repos')
 
       const responseData = response.data
 
