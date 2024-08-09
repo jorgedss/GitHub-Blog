@@ -21,7 +21,7 @@ export function SocialLinks() {
       </SocialLinksContent>
       <SocialLinksContent>
         <FontAwesomeIcon icon={faLocationDot} />
-        João Pessoa, PB
+        {githubData.location}
       </SocialLinksContent>
       {/* <SocialLinksContent>
         <FontAwesomeIcon icon={faEnvelope} />

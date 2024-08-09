@@ -9,6 +9,7 @@ export interface UserDataTypes {
   html_url: string
   id: number
   login: string
+  location: string
   name: string
   organizations_url: string
   public_repos: number
@@ -24,7 +25,6 @@ export interface UserDataTypes {
   // gists_url: string
   // gravatar_id: string
   // hireable: string
-  // location: string
   // node_id: string
   // public_gists: number
   // received_events_url: string
