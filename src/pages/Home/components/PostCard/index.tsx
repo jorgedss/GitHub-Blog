@@ -32,11 +32,13 @@ export function PostCard({ ishue }: PostCardProps) {
           <AuthorProfileImage>
             <img src={ishue.user.avatar_url} alt="Foto de perfil" />
           </AuthorProfileImage>
-          <Link to={url} style={{ textDecoration: 'none' }}>
+          <Link
+            to={url}
+            style={{ textDecoration: 'none' }}
+            onClick={() => handleChangeIdPostToShow(ishue.id)}
+          >
             <ButtonContainer>
-              <button onClick={() => handleChangeIdPostToShow(ishue.id)}>
-                {ishue.title}
-              </button>
+              <button>{ishue.title}</button>
             </ButtonContainer>
           </Link>
         </div>
