@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const PostCardContainer = styled.div`
   height: 16.25rem;
-  width: 100%;
+  min-width: 21.25rem;
   max-width: 26rem;
 
   display: flex;
@@ -19,10 +19,9 @@ export const PostCardHeader = styled.header`
   display: flex;
   position: relative;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
 
   span {
-    position: absolute;
     right: 0;
     color: ${({ theme }) => theme.colors['base-span']};
     font-size: ${({ theme }) => theme.fontSize['text-s']};
